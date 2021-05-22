@@ -1,8 +1,10 @@
 package Classes;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Room {
+    private UUID idRoom;
     private boolean avilability;
     private int quantity;
     private Date period;
@@ -12,6 +14,7 @@ public class Room {
     }
 
     public Room(boolean avilability, int quantity, Date period, String motive) {
+        this.idRoom = UUID.randomUUID();
         this.avilability = avilability;
         this.quantity = quantity;
         this.period = period;
