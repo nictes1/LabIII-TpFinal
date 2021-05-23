@@ -2,7 +2,7 @@ package Entities;
 
 import java.util.UUID;
 
-public class User {
+public class UserEntity {
 
 	private UUID Id;
 	private String Firstname;
@@ -10,12 +10,12 @@ public class User {
 	private String Document;
 	
 	//Constructors
-	public User()
+	public UserEntity()
 	{
 		Id = UUID.randomUUID();
 	}
 	
-	public User(String firstname, String lastname, String document)
+	public UserEntity(String firstname, String lastname, String document)
 	{
 		Id = UUID.randomUUID();
 		Firstname = firstname;

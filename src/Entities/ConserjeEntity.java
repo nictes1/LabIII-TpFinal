@@ -1,12 +1,12 @@
-package Classes;
+package Entities;
 
-public class Conserje extends User {
+public class ConserjeEntity extends UserEntity {
     private String Password;
 
-    public Conserje() {
+    public ConserjeEntity() {
     }
 
-    public Conserje(String firstname, String lastname, String DNI, String password) {
+    public ConserjeEntity(String firstname, String lastname, String DNI, String password) {
         super(firstname, lastname, DNI);
         Password = password;
     }

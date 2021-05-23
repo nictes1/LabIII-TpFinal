@@ -1,17 +1,17 @@
-package Classes;
+package Entities;
 
 import java.util.UUID;
 
-public class Passenger extends User {
+public class PassengerEntity extends UserEntity {
     private String Country, Street;
     private boolean IsOldPassenger, IsActive;
     private UUID IdPassenger;
-    private Room Room;
+    private RoomEntity Room;
 
-    public Passenger() {
+    public PassengerEntity() {
     }
 
-    public Passenger(String firstname, String lastname, String DNI, String country, String street, boolean isOldPassenger, boolean isActive, Classes.Room room) {
+    public PassengerEntity(String firstname, String lastname, String DNI, String country, String street, boolean isOldPassenger, boolean isActive, Entities.RoomEntity room) {
         super(firstname, lastname, DNI);
         Country = country;
         Street = street;
@@ -61,11 +61,11 @@ public class Passenger extends User {
         this.IdPassenger = IdPassenger;
     }
 
-    public Classes.Room getRoom() {
+    public Entities.RoomEntity getRoom() {
         return Room;
     }
 
-    public void setRoom(Classes.Room room) {
+    public void setRoom(Entities.RoomEntity room) {
         Room = room;
     }
 

@@ -1,19 +1,19 @@
-package Classes;
+package Entities;
 
 import java.util.Date;
 import java.util.UUID;
 
-public class Room {
+public class RoomEntity {
     private UUID idRoom;
     private boolean avilability;
     private int quantity;
     private Date period;
     private String Motive;
 
-    public Room() {
+    public RoomEntity() {
     }
 
-    public Room(boolean avilability, int quantity, Date period, String motive) {
+    public RoomEntity(boolean avilability, int quantity, Date period, String motive) {
         this.idRoom = UUID.randomUUID();
         this.avilability = avilability;
         this.quantity = quantity;
