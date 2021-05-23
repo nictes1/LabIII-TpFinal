@@ -1,17 +1,17 @@
-package Classes;
+package Entities;
 
 import java.util.Date;
 
-public class History {
+public class HistoryEntity {
     private Date Period;
     private boolean goodUse;
     private int quantity;
-    private Room Room;
+    private RoomEntity Room;
 
-    public History() {
+    public HistoryEntity() {
     }
 
-    public History(Date period, boolean goodUse, int quantity, Classes.Room room) {
+    public HistoryEntity(Date period, boolean goodUse, int quantity, Entities.RoomEntity room) {
         Period = period;
         this.goodUse = goodUse;
         this.quantity = quantity;
@@ -42,11 +42,11 @@ public class History {
         this.quantity = quantity;
     }
 
-    public Classes.Room getRoom() {
+    public Entities.RoomEntity getRoom() {
         return Room;
     }
 
-    public void setRoom(Classes.Room room) {
+    public void setRoom(Entities.RoomEntity room) {
         Room = room;
     }
 }
