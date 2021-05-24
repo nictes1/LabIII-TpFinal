@@ -1,10 +1,14 @@
 package Classes;
 
-import java.io.File;
+import Utils.Utils;
+
+import java.io.IOException;
+
 
 public class Main {
 
 	public static void main(String[] args) {
-
+		Utils utils = new Utils();
+		utils.WriteFile("fileConserjes");
 	}
 }
