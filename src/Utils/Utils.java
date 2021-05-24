@@ -5,49 +5,61 @@ import java.util.List;
 
 public class Utils {
 
-    public File createFile(String nameFile){
-        String path = nameFile + ".bin";
-        File file = new File(nameFile);
-        if(!file.exists()){
-            System.out.println("Creating file, please... wait a moment");
-            try{
-                file.createNewFile();
-                System.out.println(file.getName() + "File created..");
-            }catch (IOException ex){
-                ex.printStackTrace();
+    //Implement.
+    //Utils utils = new Utils();
+    //utils.WriteFile();
+    public void WriteFile(String nameFile){ //only files with extension ".txt"
+        FileWriter file = null;
+        PrintWriter printeWriter = null;
+        try
+        {
+            file = new FileWriter("N://Workspace//IdeaProjects//LabIII-TpFinal//src//Files//"+nameFile+".txt");
+            printeWriter = new PrintWriter(file);
+
+            for (int i = 0; i < 10; i++)
+                printeWriter.println("line " + i);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != file)
+                    file.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
-        return file;
-    }
 
-    //save list into the file
-    public void addListToFile(List<Object> listGeneric, String nameOfFile){
-        try{
-            OutputStream os = new FileOutputStream(nameOfFile);
-            ObjectOutputStream oos = new ObjectOutputStream(os);
-
-            oos.writeObject(listGeneric);
-            oos.close();
-            System.out.println("saved successfully!");
-
-        }catch (Exception ex){
-            System.err.println("Error: " + ex.getMessage());
-        }
     }
 
     //view elements of the file
-    public void viewFile(String nameOfFile){
-        try{
-            InputStream is = new FileInputStream(nameOfFile);
-            ObjectInputStream ois = new ObjectInputStream(is);
+    public void viewFile(String nameFile){
+        File file = null;
+        FileReader fileReader = null;
+        BufferedReader bufreader = null;
 
-            List<Object> listObj;
-            listObj = (List<Object>) ois.readObject();
-            System.out.println("----------------------------");
-            System.out.println(listObj.toString());
-            System.out.println("----------------------------");
-        }catch(Exception ex){
-            System.err.println("Error: " + ex.getMessage());
+        try {
+            //open file, and creating the new bufferreader for can do the lecture
+            file = new File ("N://Workspace//IdeaProjects//LabIII-TpFinal//src//Files//"+nameFile+".txt");
+            fileReader = new FileReader (file);
+            bufreader = new BufferedReader(fileReader);
+
+            //lecture the file
+            String line;
+            while((line = bufreader.readLine())!=null)
+                System.out.println(line);
+        }
+        catch(Exception e1){
+            e1.printStackTrace();
+        }finally{
+            try{
+                //close the file, checked this with try/cath
+                if( null != fileReader ){
+                    fileReader.close();
+                }
+            }catch (Exception e2){
+                e2.printStackTrace();
+            }
         }
     }
 }
