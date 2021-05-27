@@ -9,7 +9,8 @@ public class Utils {
 
     public void SaveOnConserjeFile(ConserjeEntity conserje) {
         try {
-            FileWriter fw = new FileWriter("data\\conserjes.txt", true);
+            File file = new File("data\\conserjes.txt");
+            FileWriter fw = new FileWriter(file.getName(), true);
             BufferedWriter bw = new BufferedWriter(fw);
             WriteFile(bw, conserje);
         } catch (Exception ex) {
@@ -27,13 +28,13 @@ public class Utils {
         pw.close();
     }
 
-    public Vector ViewConserjesFile()
+    public void ViewConserjesFile()
     {
         Vector vector = new Vector();
 
         try
         {
-            FileReader fr = new FileReader("data\\conserjes.txt");
+            FileReader fr = new FileReader("conserjes.txt");
             BufferedReader br = new BufferedReader(fr);
             String d;
             while((d = br.readLine()) != null)
@@ -50,6 +51,5 @@ public class Utils {
         {
             ex.printStackTrace();
         }
-        return vector;
     }
 }
