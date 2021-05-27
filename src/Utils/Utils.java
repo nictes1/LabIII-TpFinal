@@ -1,65 +1,55 @@
 package Utils;
 
 import java.io.*;
-import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
+import Entities.ConserjeEntity;
 public class Utils {
 
-    //Implement.
-    //Utils utils = new Utils();
-    //utils.WriteFile();
-    public void WriteFile(String nameFile){ //only files with extension ".txt"
-        FileWriter file = null;
-        PrintWriter printeWriter = null;
-        try
-        {
-            file = new FileWriter("N://Workspace//IdeaProjects//LabIII-TpFinal//src//Files//"+nameFile+".txt");
-            printeWriter = new PrintWriter(file);
-
-            for (int i = 0; i < 10; i++)
-                printeWriter.println("line " + i);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (null != file)
-                    file.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+    public void SaveOnConserjeFile(ConserjeEntity conserje) {
+        try {
+            File file = new File("data\\conserjes.txt");
+            FileWriter fw = new FileWriter(file.getName(), true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            WriteFile(bw, conserje);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-
     }
 
-    //view elements of the file
-    public void viewFile(String nameFile){
-        File file = null;
-        FileReader fileReader = null;
-        BufferedReader bufreader = null;
+    public void WriteFile(BufferedWriter bw, ConserjeEntity conserje)
+    {
+        PrintWriter pw = new PrintWriter(bw);
+        pw.print("|" + conserje.getId());
+        pw.print("|" + conserje.getDocument());
+        pw.print("|" + conserje.getFirstname());
+        pw.print("|" + conserje.getLastname());
+        pw.close();
+    }
 
-        try {
-            //open file, and creating the new bufferreader for can do the lecture
-            file = new File ("N://Workspace//IdeaProjects//LabIII-TpFinal//src//Files//"+nameFile+".txt");
-            fileReader = new FileReader (file);
-            bufreader = new BufferedReader(fileReader);
+    public void ViewConserjesFile()
+    {
+        Vector vector = new Vector();
 
-            //lecture the file
-            String line;
-            while((line = bufreader.readLine())!=null)
-                System.out.println(line);
-        }
-        catch(Exception e1){
-            e1.printStackTrace();
-        }finally{
-            try{
-                //close the file, checked this with try/cath
-                if( null != fileReader ){
-                    fileReader.close();
+        try
+        {
+            FileReader fr = new FileReader("conserjes.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String d;
+            while((d = br.readLine()) != null)
+            {
+                StringTokenizer data = new StringTokenizer(d, "|");
+
+                while(data.hasMoreTokens())
+                {
+                    vector.add(data.nextToken());
                 }
-            }catch (Exception e2){
-                e2.printStackTrace();
+                System.out.println(vector);
             }
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
         }
     }
 }
