@@ -1,20 +1,40 @@
 package Repository;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.Vector;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import Entities.AdminEntity;
 import Entities.ConserjeEntity;
 import Interfaces.IAdminRepository;
+import Utils.Utils;
 
 public class AdminRepository extends AdminEntity implements IAdminRepository{
 
-	public Boolean adminLogin(String document, String password) 
-	{	
-		return true;
+	public boolean loginAdmin(String password, String confirmPassword) {
+		//TODO: Obtener la lista de admins
+		AtomicBoolean result = new AtomicBoolean(false);
+		List<AdminEntity> admins = new ArrayList<AdminEntity>();
+		AdminEntity admin1 = new AdminEntity("password1", "password1");
+		AdminEntity admin2 = new AdminEntity("password2", "password2");
+		AdminEntity admin3 = new AdminEntity("password3", "password3");
+		admins.add(admin1);
+		admins.add(admin2);
+		admins.add(admin3);
+
+		admins.forEach(admin -> {
+			String pwd = admin.getPassword();
+			String confPwd = admin.getConfirmPassword();
+			if(pwd == password && confPwd == confirmPassword) {
+				result.set(true);
+			}
+			else {
+				result.set(false);
+			}
+		});
+		return result.get();
 	}
 	
 	public ConserjeEntity createConserje(String cjPassword)
