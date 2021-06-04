@@ -1,17 +1,14 @@
 package Repository;
 
+import Entities.AdminEntity;
+import Entities.ConserjeEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import Entities.AdminEntity;
-import Entities.ConserjeEntity;
-import Interfaces.IAdminRepository;
-import Utils.Utils;
-
-public class AdminRepository extends AdminEntity implements IAdminRepository{
+public class AdminRepository extends AdminEntity{
 
 	public boolean loginAdmin(String password, String confirmPassword) {
 		//TODO: Obtener la lista de admins
