@@ -4,9 +4,7 @@ public class AdminEntity extends UserEntity{
 	private String password;
 	private String confirmPassword;
 	
-	public AdminEntity()
-	{
-		
+	public AdminEntity() {
 	}
 	
 	public AdminEntity(String password, String confirmPassword)

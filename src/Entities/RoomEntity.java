@@ -1,40 +1,26 @@
 package Entities;
 
+import Enums.RoomStatus;
+
 import java.util.Date;
-import java.util.UUID;
 
-public class RoomEntity {
-    private UUID idRoom;
-    private boolean avilability;
-    private int quantity;
+public class RoomEntity{
+    private int idRoom;
     private Date period;
-    private String Motive;
+    private Enums.RoomStatus roomStatus;
 
-    public RoomEntity() {
-    }
-
-    public RoomEntity(boolean avilability, int quantity, Date period, String motive) {
-        this.idRoom = UUID.randomUUID();
-        this.avilability = avilability;
-        this.quantity = quantity;
+    public RoomEntity(int idRoom, Date period, RoomStatus roomStatus) {
+        this.idRoom = idRoom;
         this.period = period;
-        Motive = motive;
+        this.roomStatus = roomStatus;
     }
 
-    public boolean isAvilability() {
-        return avilability;
+    public int getIdRoom() {
+        return idRoom;
     }
 
-    public void setAvilability(boolean avilability) {
-        this.avilability = avilability;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setIdRoom(int idRoom) {
+        this.idRoom = idRoom;
     }
 
     public Date getPeriod() {
@@ -45,22 +31,14 @@ public class RoomEntity {
         this.period = period;
     }
 
-    public String getMotive() {
-        return Motive;
+    public RoomStatus getRoomStatus() {
+        return roomStatus;
     }
 
-    public void setMotive(String motive) {
-        Motive = motive;
+    public void setRoomStatus(RoomStatus roomStatus) {
+        this.roomStatus = roomStatus;
     }
 
-    @Override
-    public String toString() {
-        return "Room{" +
-                "avilability=" + avilability +
-                ", quantity=" + quantity +
-                ", period=" + period +
-                ", Motive='" + Motive + '\'' +
-                '}';
-    }
+
 }
 

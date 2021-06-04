@@ -11,14 +11,13 @@ public class PassengerEntity extends UserEntity {
     public PassengerEntity() {
     }
 
-    public PassengerEntity(String firstname, String lastname, String DNI, String country, String street, boolean isOldPassenger, boolean isActive, Entities.RoomEntity room) {
+    public PassengerEntity(String firstname, String lastname, String DNI, String country, String street, boolean isOldPassenger, boolean isActive) {
         super(firstname, lastname, DNI);
         Country = country;
         Street = street;
         IsOldPassenger = isOldPassenger;
         IsActive = isActive;
         this.IdPassenger = UUID.randomUUID();
-        Room = room;
     }
 
     public String getCountry() {
@@ -61,13 +60,6 @@ public class PassengerEntity extends UserEntity {
         this.IdPassenger = IdPassenger;
     }
 
-    public Entities.RoomEntity getRoom() {
-        return Room;
-    }
-
-    public void setRoom(Entities.RoomEntity room) {
-        Room = room;
-    }
 
     @Override
     public String toString() {
@@ -77,7 +69,6 @@ public class PassengerEntity extends UserEntity {
                 ", IsOldPassenger=" + IsOldPassenger +
                 ", IsActive=" + IsActive +
                 ", Passenger=" + IdPassenger +
-                ", Room=" + Room +
                 '}';
     }
 }

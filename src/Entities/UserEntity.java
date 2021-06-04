@@ -15,8 +15,7 @@ public class UserEntity {
 		Id = UUID.randomUUID();
 	}
 	
-	public UserEntity(String firstname, String lastname, String document)
-	{
+	public UserEntity(String firstname, String lastname, String document){
 		Id = UUID.randomUUID();
 		Firstname = firstname;
 		Lastname = lastname;
