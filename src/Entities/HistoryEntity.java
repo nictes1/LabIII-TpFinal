@@ -6,16 +6,16 @@ public class HistoryEntity {
     private Date Period;
     private boolean goodUse;
     private int quantity;
-    private RoomEntity Room;
+
 
     public HistoryEntity() {
     }
 
-    public HistoryEntity(Date period, boolean goodUse, int quantity, Entities.RoomEntity room) {
+    public HistoryEntity(Date period, boolean goodUse, int quantity) {
         Period = period;
         this.goodUse = goodUse;
         this.quantity = quantity;
-        Room = room;
+
     }
 
     public Date getPeriod() {
@@ -42,11 +42,5 @@ public class HistoryEntity {
         this.quantity = quantity;
     }
 
-    public Entities.RoomEntity getRoom() {
-        return Room;
-    }
 
-    public void setRoom(Entities.RoomEntity room) {
-        Room = room;
-    }
 }

@@ -1,22 +1,12 @@
 package Classes;
 
-import Entities.ConserjeEntity;
-import Repository.AdminRepository;
-import Repository.ConserjeRepository;
-
-
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.List;
-
 
 public class Main {
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+	public static void main(String[] args) {
 
 
-		ObjectInputStream read = new ObjectInputStream(new FileInputStream("Conserje.txt"));
+
 
 
 	}
